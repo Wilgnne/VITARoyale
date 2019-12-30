@@ -28,17 +28,14 @@ namespace Weapons
 		void OnTriggerStay2D(Collider2D col)
 		{
 			if (input.buttonsMap.collect)
-			{
-				LootSpecs specs = col.GetComponent<LootSpecs> ();
-				if (col.tag == "WeaponItem") 
+			{	
+				if (col.tag == "LootItem") 
 				{
-
-					if (weaponController.AddWeapon (specs))
+					LootSpecs specs = col.GetComponent<LootSpecs> ();
+					BaseController controller = GetComponent(specs.lootController.ToString()) as BaseController;
+					
+					if (controller.Append (specs))
 						Destroy (col.gameObject);
-				}
-				else if (col.tag == "AmmunitionItem")
-				{
-					ammoController.AppendAmmo(specs.ammonitionType, specs.amount);
 				}
 			}
 		}

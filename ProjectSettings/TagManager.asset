@@ -6,8 +6,7 @@ TagManager:
   tags:
   - Drop
   - Bullet
-  - WeaponItem
-  - AmmunitionItem
+  - LootItem
   layers:
   - Default
   - TransparentFX

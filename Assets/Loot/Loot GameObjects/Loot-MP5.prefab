@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114208579999971896}
   m_Layer: 0
   m_Name: Loot-MP5
-  m_TagString: WeaponItem
+  m_TagString: LootItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cadcd101c9f9a9947bdd73efc959c6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootType: 0
+  lootController: 1
   ammonitionType: 0
   instance: {fileID: 1952529846045454, guid: 3523477f3ee78714a9e29634bb08102f, type: 2}
   amount: 1

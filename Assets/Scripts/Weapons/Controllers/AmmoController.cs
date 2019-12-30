@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Loot;
+
 namespace Weapons.Controllers
 {
 	
-	public class AmmoController : MonoBehaviour {
+	public class AmmoController : BaseController {
 
 		// Use this for initialization
 		void Start () {
@@ -16,10 +18,12 @@ namespace Weapons.Controllers
 		void Update () {
 			
 		}
-
-		public void AppendAmmo (AmmoType type, int amount)
+		public override bool Append (LootSpecs specs)
 		{
+			AmmoType type = specs.ammonitionType;
+			int amount = specs.amount;
 
+			return true;
 		}
 	}
 }

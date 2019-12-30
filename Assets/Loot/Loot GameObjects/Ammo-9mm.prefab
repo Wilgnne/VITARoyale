@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114289102785476788}
   m_Layer: 0
   m_Name: Ammo-9mm
-  m_TagString: AmmunitionItem
+  m_TagString: LootItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cadcd101c9f9a9947bdd73efc959c6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootType: 1
+  lootController: 0
   ammonitionType: 0
   instance: {fileID: 0}
   amount: 120

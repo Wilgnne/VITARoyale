@@ -9,7 +9,7 @@ using Weapons.UI;
 
 namespace Weapons.Controllers
 {
-	public class WeaponController : MonoBehaviour 
+	public class WeaponController : BaseController 
 	{
 		InputBase input;
 		public GameObject weaponGameObject;
@@ -55,7 +55,7 @@ namespace Weapons.Controllers
 			LoadAttWeapon ();
 		}
 
-		public bool AddWeapon (LootSpecs specs)
+		public override bool Append (LootSpecs specs)
 		{
 			if (weapons.Count < weaponsCont)
 			{

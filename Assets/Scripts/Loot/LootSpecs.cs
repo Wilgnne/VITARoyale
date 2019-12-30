@@ -6,15 +6,15 @@ using Weapons;
 
 namespace Loot
 {
-	public enum LootType
+	public enum LootController
 	{
-		Weapon,
-		Ammunition
+		AmmoController,
+		WeaponController
 	}
 
 	public class LootSpecs : MonoBehaviour 
 	{
-		public LootType lootType;
+		public LootController lootController;
 		public AmmoType ammonitionType;
 		public GameObject instance;
 		public int amount = 1;
