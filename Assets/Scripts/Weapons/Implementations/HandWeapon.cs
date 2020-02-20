@@ -9,7 +9,7 @@ namespace Weapons
 		// Use this for initialization
 		void Start () 
 		{
-
+			ammoCont = float.PositiveInfinity;
 		}
 
 		// Update is called once per frame

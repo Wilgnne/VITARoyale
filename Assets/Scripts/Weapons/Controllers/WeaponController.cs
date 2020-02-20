@@ -13,10 +13,10 @@ namespace Weapons.Controllers
 	{
 		InputBase input;
 		public GameObject weaponGameObject;
-		public int weaponsCont = 4;
+		public int maxAmmauntWeapons = 4;
 		public WeaponBase attWeapon;
 
-		public int attWeaponIndex = 0;
+		int attWeaponIndex = 0;
 		public List<WeaponBase> weapons;
 
 		Animator animator;
@@ -57,9 +57,9 @@ namespace Weapons.Controllers
 
 		public override bool Append (LootSpecs specs)
 		{
-			if (weapons.Count < weaponsCont)
+			if (weapons.Count < maxAmmauntWeapons)
 			{
-				GameObject instance = Instantiate (specs.instance, transform);
+				GameObject instance = Instantiate (specs.instance, weaponGameObject.transform);
 				WeaponBase weapon = instance.GetComponent<WeaponBase> ();
 				weapons.Add (weapon);
 				weapon.gameObject.SetActive (false);
@@ -83,16 +83,23 @@ namespace Weapons.Controllers
 			}
 		}
 
+		bool ReloadAttWeapon()
+		{
+
+			return true;
+		}
+
 		IEnumerator Fire ()
 		{
 			isFiring = true;
+			if (attWeapon.Fire ())
+			{
+				animator.SetTrigger (fires [next]);
+				next = (next + 1) % fires.Length;
 
-			animator.SetTrigger (fires [next]);
-			next = (next + 1) % fires.Length;
+				yield return new WaitForSeconds (attWeapon.fireRate);
+			}
 
-			attWeapon.Fire ();
-
-			yield return new WaitForSeconds (attWeapon.fireRate);
 			isFiring = false;
 		}
 	}

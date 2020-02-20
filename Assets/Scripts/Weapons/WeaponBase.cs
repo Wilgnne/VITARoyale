@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 namespace Weapons
 {
+	[System.Serializable]
 	public enum AmmoType
 	{
 		_9mm
@@ -20,15 +21,27 @@ namespace Weapons
 	{
 		public RuntimeAnimatorController controller;
 		public GameObject bullet;
+		public float ammoCont;
 		public AmmoType ammoType;
 		public float fireRate = 1f;
 		public float damage = 5f;
 		public UIComponents UIComponents;
 
-		public virtual void Fire ()
+		public virtual bool Fire ()
 		{
-			GameObject bulletGO = Instantiate (bullet, transform);
-			bulletGO.GetComponent<BulletSpacs> ().damage = damage;
+			if (ammoCont > 0)
+			{
+				--ammoCont;
+				GameObject bulletGO = Instantiate (bullet, transform);
+				bulletGO.GetComponent<BulletSpacs> ().damage = damage;
+				return true;
+			}
+			return false;
+		}
+
+		public virtual void Reload (int newAmmo)
+		{
+			ammoCont = newAmmo;
 		}
 	}
 }

@@ -81,7 +81,7 @@ MonoBehaviour:
   lootController: 0
   ammonitionType: 0
   instance: {fileID: 0}
-  amount: 120
+  amount: 25
 --- !u!212 &212756038081399272
 SpriteRenderer:
   m_ObjectHideFlags: 1
